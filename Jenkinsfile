@@ -2,9 +2,11 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
+        stage('Build frontend') {
             steps {
+                sh 'cd tasks'
                 sh 'npm run build'
+                sh 'echo something'
             }
         }
 
