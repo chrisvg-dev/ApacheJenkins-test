@@ -4,8 +4,9 @@ pipeline {
     stages {
         stage('Build frontend') {
             steps {
-                sh 'cd /var/lib/jenkins/workspace/JenkinsTasksJob/tasks && npm run build'
-                sh 'npm install'
+                sh 'cd /var/lib/jenkins/workspace/JenkinsTasksJob/tasks && npm install'
+                sh 'npm run build'
+                
             }
         }
 
