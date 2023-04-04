@@ -3,8 +3,10 @@ pipeline {
 
     stages {
         stage('Checkout') {
-            sshagent(credentials: ['ssh_github_access']) {
-                sh 'git clone git@github.com:chrisvg-dev/ApacheJenkins-test.git .'
+            steps {
+                sshagent(credentials: ['ssh_github_access']) {                
+                    sh 'git clone git@github.com:chrisvg-dev/ApacheJenkins-test.git .'
+                }
             }
         }
 
@@ -13,7 +15,7 @@ pipeline {
         }
 
         stage('Deploy') {
-            
+
         }
     }
 }
