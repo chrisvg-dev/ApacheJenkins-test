@@ -13,6 +13,8 @@ pipeline {
         stage('Deploy') {
             steps{
                 sh 'echo Deploy'
+                sh 'rm -rf /var/www/html/*'
+                sh 'cp -p /var/lib/jenkins/workspace/JenkinsTasksJob/tasks/build/* /var/www/html'
             }
         }
     }
