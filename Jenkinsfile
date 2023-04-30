@@ -3,7 +3,7 @@ pipeline {
 
     stages {
         stage('Build frontend') {
-            folder('tasks'){
+            dir('tasks'){
                 steps {
                     sh 'npm install'
                     sh 'npm run build'
