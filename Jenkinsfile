@@ -3,10 +3,11 @@ pipeline {
 
     stages {
         stage('Build frontend') {
-            steps {
-                sh 'cd /var/lib/jenkins/workspace/ReactSubdomainJob/tasks && npm install'
-                sh 'cd /var/lib/jenkins/workspace/ReactSubdomainJob/tasks && npm run build'
-                
+            folder('tasks'){
+                steps {
+                    sh 'npm install'
+                    sh 'npm run build'
+                }
             }
         }
 
