@@ -2,9 +2,9 @@ pipeline {
     agent any
 
     stages {
-        stage('Build frontend') {
-            dir('tasks'){
-                steps {
+        stage('Build frontend') {            
+            steps {
+                dir('tasks'){
                     sh 'npm install'
                     sh 'npm run build'
                 }
