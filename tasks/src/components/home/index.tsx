@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import './index.css'
 
 export const App = ():any => {
     const [ repositories, setRepositories ] = useState<any[]>([]);
