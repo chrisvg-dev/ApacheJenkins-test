@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+
 export const App = ():any => {
     const [ repositories, setRepositories ] = useState<any[]>([]);
 
@@ -7,6 +8,7 @@ export const App = ():any => {
         await fetch('https://api.github.com/users/chrisvg-dev/repos')
             .then(data => data.json())
             .then( data => {
+                console.log(data)
                 setRepositories(data)
             } );
     };
@@ -15,17 +17,22 @@ export const App = ():any => {
         <>
             <div className='container'>
                 <h1 className='text text-secondary'>Hello</h1>
+                
                 <input type="text" className='form-control' />
-                <ul>
-                    { repositories.map((data: any) =>
-                        {
-                            return <li key={data.id}>                                
-                                {data.full_name}
-                            </li>
-                        }
-                    )}
-                </ul>
                 <button onClick={fetchPost}>Hello</button>
+                <hr />
+                { repositories.map((data: any) =>
+                    {
+                        return (
+                            <div className='card col-md-4' key={data.id}>                                
+                                <div className='card-header'>
+                                    {data.name}
+                                </div>
+                            </div>
+                        );
+                    }
+                )}
+                
             </div>
         </>
     );
